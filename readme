@@ -1,1 +1,88 @@
-This repo is to discuss the usage of graphRAG and the power of RAG and Knowledge graph and many uses cases for GraphRAG 
+Solution Templates in United AI Studio: User Documentation
+1. Introduction
+This guide will walk you through the various solution templates designed to facilitate the implementation of Generative AI Use Cases in United AI studio. These templates are notebooks that serve as starter code for a variety of use cases, leveraging state-of-the-art AI techniques to enhance information retrieval and generation. It also serves as a guide to use the AI services available in united AI studio including Open AI models, azure cognitive services, azure model registry and many more. 
+Use cases covered include Q&A with PDF documents, patient medical charts, performing actions through APIs in RAG pipeline, Hybrid retrieval, summarization, contextual retrieval through knowledge graphs and more. Upcoming releases will have templates to fine tune a model, how to use other models from azure model catalog, RAG with BYOD etc.
+These templates are tested in UAIS workspace and uses AI services available inside UAIS. So we recommend to use these template inside UAIS.
+2. Prerequisites
+Before you begin using these solution templates, ensure you have the following prerequisites: 
+•	UAIS Subscription: An active subscription to United AI Studio. Here is how to get a UAIS subscription Getting a UAIS subscription
+•	OpenAI Services Access: Access to OpenAI services for model integration. Here is how to get Open AI model access in an UAIS subscription Access to Open AI in UAIS
+•	GitHub Account: Need to have requested the following Secure Group "AZU_GHEC_USERS"
+•	Personal Access Token (PAT): A PAT token with appropriate permissions for cloning repositories. Create a PAT token
+3. How to Install and run Templates in UAIS Workspace
+To install the solution templates in your UAIS workspace, users need to follow these steps. The github for UAIS solutioGitHub . These templates are tested in UAIS workspace and uses AI services available inside UAIS.
+If you find these templates helpful in starting your AI projects, please consider starring the repository on GitHub. This will provide encouragement to release more templates
+To star the repository:
+1.	Navigate to the UAIS Solution Templates GitHub Repository.
+2.	Click on the "Star" button at the top-right corner of the repository page.
+Step 1: Go to your azure ml workspace
+1.	Navigate to your Azure Machine Learning workspace tied to your UAIS subscription.
+2.	One way to do this is by opening the United AI Studio project and clicking on Azure Machine Learning under workspaces:
+Open Screenshot 2024-06-05 at 4.53.54 PM.png
+ 
+Step 2: Create a python notebook
+1.	In Azure ML Studio, go to the notebooks section.
+2.	Create a new Python notebook by clicking on "Create a new file."
+Open Screenshot 2024-06-05 at 5.03.01 PM.png
+ 
+Step 3: Generate a PAT Token
+1.	Go to the GitHub documentation to create a PAT token: Create a PAT Token 
+2.	Ensure the token has the necessary permissions to clone repositories. It should have access to optum-labs
+Open Screenshot 2024-06-05 at 4.59.17 PM.png
+ 
+Step 4: Enter Credentials
+1.	Import the getpass library to securely store your GitHub username.
+import getpass  
+git_user = getpass.getpass(prompt='Enter your git username - \\n')   
+2.	Enter your PAT token
+git_pat = getpass.getpass(prompt='Enter your git pat token - \\n') 
+Step 5: Clone Templates
+1.	Clone the UAIS solution templates repository into your workspace using the following command: 
+!git clone -b 'feature/genericRagTemplates' https://$git_user:$git_pat@github.com/optum-labs/uais-solution-templates.git
+Step 6: Access the templates
+1. Once the cloning command runs successfully, click on "Refresh" in the notebooks section.
+Open Screenshot 2024-06-05 at 5.28.33 PM.png
+ 
+2.	The templates should appear in your workspace and should look similar to the following structure:
+Open Screenshot 2024-06-05 at 5.27.33 PM.png
+ 
+ 
+Step 7: Running a template 
+To run a template, follow these steps:
+1.	Open the templates_index.ipynb notebook.
+2.	Browse through the list of available templates and select the one you want to use.
+3.	Once the template is open, select an appropriate compute instance to run the notebook. Creating a compute instance
+4.	Run the cells in the notebook sequentially.
+5.	Ensure to enter your OpenAI API keys wherever necessary in the notebook. The specific cells where the keys need to be entered will usually have a placeholder
+4. Templates
+1. RAG Template on PDF Documents
+•	Purpose: Enable Q&A on PDF documents. 
+•	Model : Azure OpenAI models
+2. Q&A on Patient Medical Chart Template (coming in june)
+•	Purpose: Specialized retriever for patient medication, diagnosis, and treatment questions. 
+•	Model: SapBert model will be downloaded through solution templates SDK. 
+3. Hybrid Retrieval Template (BM25 and Dense Retrieval) (coming in june)
+•	Purpose: Combine dense and sparse retrieval methods for improved coverage and relevance. 
+•	AI Service: Azure AI search ( Access to Azure AI search) and Azure OpenAI models
+5. FAQ
+Q1: What is the purpose of the UAIS Solution Templates?
+A: The UAIS Solution Templates are designed to provide starter code and notebooks for implementing different genAI use cases. Some templates gives you access to fine tuned models from Optum AI through the template SDK
+Q2: How do I request for a new template?
+A: You can request for a new template that works in UAIS by going to the Issues section of UAIS solution template github. 
+Q3: How do I raise a bug on the templates?
+A: You can request for a new template that works in UAIS by going to the Issues section of UAIS solution template github. . 
+Q4: Can I customize the templates for my specific needs?
+A: Yes, the templates are designed to be flexible and can be customized to suit specific requirements. You can modify the code and integrate additional components as needed. 
+Q5: Can I checkin my template to the uais solution template github?
+A: No at present this is not available but we are working on it. 
+Q6: What models are used in the templates?
+A: The templates utilize a variety of models, including open AI, SapBert and fine-tuned models via the UAIS Templates SDK(ms-marco-MiniLM-L-12-v2, and BioRoberta). 
+Q7: How can I evaluate the performance of my RAG pipeline?
+A: Use the Evaluation Template to assess your RAG pipeline using metrics like Precision, Recall, F1, MRR, MAP, and nDCG. Additionally, you can use an LLM for more comprehensive evaluations. 
+Q8: What is the role of the UAIS Templates SDK?
+A: The UAIS Templates SDK is used to download fine-tuned models and facilitate specialized retrieval and chunking strategies, enhancing the functionality of some solution templates. 
+Q9: Who can I contact for support?
+A: For any issues or support, you can reach out to the United AI Studio support team UAIS support or consult the documentation provided in the GitHub repository UAIS solution templates github. 
+This concludes the user documentation for the Solution Templates in United AI Studio. We hope this guide helps you effectively utilize the templates to enhance your AI-driven projects. Happy coding!
+
+
